@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @ToString(of = {"id", "username", "age"})
-public class Member {
+public class Member extends BaseEntity{
     @Id
     @GeneratedValue
     @Column(name = "member_id")
@@ -19,6 +19,8 @@ public class Member {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "team_id")
     private Team team;
+
+
     public Member(String username) {
         this(username, 0);
     }
